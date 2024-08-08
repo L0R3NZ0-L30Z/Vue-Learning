@@ -17,11 +17,11 @@
   </header>
   <section id="user-goals">
     <h2>My course goals</h2>
-    <input type="text" v-model="enteredGoalValue" />
-    <button @:click="addGoal">Add Goal</button>
+    <input type="text" v-model="enteredGoalValue" :value="enteredGoalValue" />
+    <button class="button" @:click="addGoal">Add Goal</button>
     <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
     <ul v-else>
-      <li v-for="(x, indx) in goals" @click="removeG(indx)">{{ x }}</li>
+      <li v-for="(x, indx) in goals" @click.right.prevent="removeG(indx)" >{{ x }} - {{ localTime(indx) }}</li>
       </ulv-else>
   </section>
 </body>
